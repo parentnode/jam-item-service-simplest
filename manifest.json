@@ -4,63 +4,69 @@
 		{
 			"src":"classes/type.service.class.php",
 			"dest":"classes/items/type.service.class.php",
-			"digest":"sha256:a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2"
-		},
-		{
-			"type":"database",
-			"src":"config/db/item_service.sql",
-			"dest":"config/db/item_service.sql",
-			"digest":"sha256:a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2"
+			"digest":"sha256:0d36ade9943097f754a71bca98b223d9895dcef578c57f9da7f7d5d987dfda26"
 		},
 		{
 			"src":"www/janitor/service.php",
 			"dest":"www/janitor/service.php",
-			"digest":"sha256:b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3"
+			"digest":"sha256:8690d95fd400a6a6a43c35803cd9ae6da5c5ed8b50294f9bce3466be320ff791"
 		},
 		{
 			"src":"templates/janitor/service/list.php",
 			"dest":"templates/janitor/service/list.php",
-			"digest":"sha256:f1e2d3c4b5a6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2"
+			"digest":"sha256:5208461c39f7eb7db163361c3d15bb694add6d96025f2042b7673bfc81b90c0a"
 		},
 		{
 			"src":"templates/janitor/service/edit.php",
 			"dest":"templates/janitor/service/edit.php",
-			"digest":"sha256:e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6u7v8w9x0y1z2a3b4c5d6e7f8g9h0i1j2"
+			"digest":"sha256:c8789d76b68786b97b889512f5f965c7ebef36b57ecfe9b1e7db1231db94dc51"
 		},
 		{
 			"src":"templates/janitor/service/new.php",
 			"dest":"templates/janitor/service/new.php",
-			"digest":"sha256:d2c3b4a5f6e7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3"
+			"digest":"sha256:0bf2c0bcec75419b512c543a20d4bf6928a7bcfc4e6b90c4fa918fc75184f8ea"
 		},
 		{
 			"src":"www/settings/css/s-service.css",
 			"dest":"www/janitor/css/setup/modules/s-service.css",
-			"digest":"sha256:c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2"
+			"digest":"sha256:0b77d0a78874f99f56d0532a9c1b20616eae788d53a490b3fe704592bcdecafe"
 		},
 		{
 			"src":"www/settings/js/m-service.js",
 			"dest":"www/janitor/js/setup/modules/m-service.js",
-			"digest":"sha256:d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2"
+			"digest":"sha256:d647f5319c0d62c4a56031e3c82635207a56ef607bd7dea7b96bf719f04530dd"
 		},
 		{
 			"src":"templates/settings/index.php",
 			"dest":"templates/janitor/modules/item/service/index.php",
-			"digest":"sha256:b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2"
+			"digest":"sha256:12f4d819b33f3f4c34b64f4cd23db81de71334e103e6f49408346abce6c4935b"
 		},
 		{
 			"src":"www/services.php",
 			"dest":"www/services.php",
-			"digest":"sha256:c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4"
+			"digest":"sha256:0ca8935bae099022e06374d5ba8150f90922d6737e287e594236ac127cff88cd"
 		},
 		{
 			"src":"templates/services/index.php",
 			"dest":"templates/services/index.php",
-			"digest":"sha256:e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3"
+			"digest":"sha256:046f9c2bbd081f064ea6881674e09f9ebcf7395ede5f9799faef48b28883002f"
 		},
 		{
 			"src":"templates/services/view.php",
 			"dest":"templates/services/view.php",
-			"digest":"sha256:f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4"
+			"digest":"sha256:c27145cac906ee6201bf0137954dc7616cfd192ad4d56a9ea9130a112459c8a9"
 		}
-	]
+	],
+	"data":{
+		"install":[
+			"config/db/navigation_nodes.sql",
+			"config/db/item_service.sql"
+		],
+		"uninstall":[
+			"config/db/navigation_nodes_uninstall.sql"
+		],
+		"uninstall-data":[
+			"config/db/item_service_uninstall.sql"
+		]
+	}
 }
