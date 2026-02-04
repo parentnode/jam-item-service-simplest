@@ -7,15 +7,15 @@ janitor.parentnode.dk is the public face of Janitor. It contains the documentati
 Visit https://janitor.parentnode.dk for more information.
 
 # About parentNode.dk
-parentnode.dk is a Copenhagen based open source project and development agency and part of [think.dk](http://think.dk), a think tank & center for acceleration of sustainable change. 
+parentnode.dk is a Copenhagen based open source project and development agency. 
 
-Visit https://think.dk or https://parentnode.dk for more information.
+Visit https://parentnode.dk for more information.
 
 # Licenses:
 This Janitor module is licensed as follows:
 
 ##Source code:
-https://github.com/parentnode/jam-instantmessage-telegram/blob/master/MIT-LICENSE.md
+https://github.com/parentnode/jam-item-service-simplest/blob/master/MIT-LICENSE.md
 
 
 

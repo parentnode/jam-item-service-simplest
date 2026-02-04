@@ -1,5 +1,5 @@
 {
-	"version": "0.1.1",
+	"version": "0.1",
 	"files": [
 		{
 			"src": "classes/type.service.class.php",
@@ -39,7 +39,7 @@
 		{
 			"src": "templates/settings/index.php",
 			"dest": "templates/janitor/modules/item/service/index.php",
-			"digest": "sha256:12f4d819b33f3f4c34b64f4cd23db81de71334e103e6f49408346abce6c4935b"
+			"digest": "sha256:fa93bc78b8c14a256e7e08a42d3cb00f867941ea8b1f69e62d9a6ae6a39b3d4c"
 		},
 		{
 			"src": "www/services.php",
@@ -66,6 +66,7 @@
 			"config/db/navigation_nodes_uninstall.sql"
 		],
 		"uninstall-data": [
+			"config/db/item_service_data_uninstall.sql",
 			"config/db/item_service_uninstall.sql"
 		]
 	}
