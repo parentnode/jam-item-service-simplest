@@ -1,9 +1,30 @@
 <?php
+$controller_itemtype = "service";
+$controller_favors = false;
+
 $access_item["/"] = true;
 $access_item["/owner"] = true;
 $access_item["/updateOwner"] = "/owner";
+
 $access_item["/comments"] = true;
-$access_item["/addComment"] = "/comments";
+$access_item["/deleteComment"] = "/comments";
+$access_item["/updateComment"] = "/comments";
+
+$access_item["/sindex"] = true;
+$access_item["/updateSindex"] = "/sindex";
+$access_item["/checkSindex"] = "/sindex";
+
+$access_item["/cannonical"] = true;
+$access_item["/setCannonicalUrl"] = "/cannonical";
+
+
+$access_item["/tags"] = true;
+$access_item["/addTag"] = "/tags";
+$access_item["/updateTag"] = "/tags";
+$access_item["/deleteTag"] = "/tags";
+
+$access_item["/developer"] = true;
+
 if(isset($read_access) && $read_access) {
 	return;
 }
@@ -11,9 +32,9 @@ if(isset($read_access) && $read_access) {
 include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
 
+$itemtype = $controller_itemtype;
 $action = $page->actions();
 $IC = new Items();
-$itemtype = "service";
 $model = $IC->typeObject($itemtype);
 
 
@@ -33,16 +54,9 @@ if(is_array($action) && count($action)) {
 		exit();
 	}
 
-	// Class interface
-	else if(security()->validateCsrfToken() && preg_match("/[a-zA-Z]+/", $action[0])) {
-
-		// check if custom function exists on User class
-		if($model && method_exists($model, $action[0])) {
-
-			$output = new Output();
-			$output->screen($model->{$action[0]}($action));
-			exit();
-		}
+	// Handle possible API request
+	else {
+		security()->API_request($model, $action);
 	}
 
 }
@@ -50,5 +64,3 @@ if(is_array($action) && count($action)) {
 $page->page(array(
 	"templates" => "pages/404.php"
 ));
-
-?>

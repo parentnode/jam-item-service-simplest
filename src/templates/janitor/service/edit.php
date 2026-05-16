@@ -5,7 +5,7 @@ global $model;
 global $itemtype;
 
 $item_id = $action[1];
-$item = $IC->getItem(array("id" => $item_id, "extend" => array("tags" => true, "mediae" => true, "comments" => true)));
+$item = $IC->getItem(array("id" => $item_id, "extend" => array("tags" => true, "mediae" => true)));
 ?>
 <div class="scene i:scene defaultEdit <?= $itemtype ?>Edit">
 	<h1>Edit service</h1>
@@ -14,6 +14,7 @@ $item = $IC->getItem(array("id" => $item_id, "extend" => array("tags" => true, "
 	<?= $JML->editGlobalActions($item) ?>
 
 	<?= $JML->editSingleMedia($item, array("label" => "Main service image")) ?>
+
 
 	<div class="item i:defaultEdit">
 		<h2>Service content</h2>
@@ -31,14 +32,14 @@ $item = $IC->getItem(array("id" => $item_id, "extend" => array("tags" => true, "
 	</div>
 
 
-	<?= $JML->editTags($item) ?>
+	<?= $JML->editTags($item, ["context" => $itemtype]) ?>
 
-	<?= $JML->editComments($item) ?>
+	<?= $JML->editCannonicalUrl($item) ?>
 
 	<?= $JML->editSindex($item) ?>
 
-	<?= $JML->editDeveloperSettings($item) ?>
-
 	<?= $JML->editOwner($item) ?>
+
+	<?= $JML->editDeveloperSettings($item) ?>
 
 </div>

@@ -32,14 +32,6 @@ class TypeService extends Itemtype {
 			"error_message" => "Name must be filled out."
 		));
 
-		// Class
-		$this->addToModel("classname", array(
-			"type" => "string",
-			"label" => "CSS Class for list",
-			"hint_message" => "CSS class for custom styling. If you don't know what this is, just leave it empty.",
-			"error_message" => "Classname is invalid.",
-		));
-
 		// description
 		$this->addToModel("description", array(
 			"type" => "text",
@@ -56,6 +48,15 @@ class TypeService extends Itemtype {
 			"allowed_tags" => "p,h2,h3,h4,ul,ol,download,jpg,png,code",
 			"hint_message" => "Describe the service.",
 			"error_message" => "A service description without any words? How weird."
+		));
+
+		// Class
+		$this->addToModel("classname", array(
+			"type" => "string",
+			"label" => "CSS Class for list",
+			"pattern" => "[a-z]+[a-z\-\:]*",
+			"hint_message" => "CSS class for custom styling. If you don't know what this is, just leave it empty. Must be a valid, implemented css-classname to have any effect.",
+			"error_message" => "Invalid CSS class syntax",
 		));
 
 		// Single media
