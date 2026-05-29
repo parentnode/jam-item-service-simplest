@@ -1,37 +1,46 @@
 <?php
-global $IC;
 global $action;
 global $itemtype;
 
+
+$IC = new Items();
 $sindex = $action[0];
 
-$next = false;
-$prev = false;
 
-$item = $IC->getItem([
-	"sindex" => $sindex, 
-	"status" => 1,
-	"historic" => true,
-	"extend" => [
-		"tags" => true, 
-		"user" => true, 
-		"mediae" => true, 
-		"comments" => true, 
-		"readstate" => true
-	]
-]);
+$pagination_pattern = [
+	"pattern" => [
+		"itemtype" => $itemtype, 
+		"status" => 1, 
+		"extend" => [
+			"tags" => true, 
+			"user" => true, 
+			"mediae" => true,
+			"readstate" => true,
+		]
+	],
+	"sindex" => $sindex,
+	"limit" => 1
+];
 
-if($item) {
+
+$pagination_items = $IC->paginate($pagination_pattern);
+
+
+if($pagination_items && $pagination_items["range_items"]) {
+
+	$item = $pagination_items["range_items"][0];
+
 	$this->pageTitle($item["name"]);
 	$this->bodyClass($item["classname"] ? $item["classname"] : "services");
 	$this->sharingMetaData($item);
 
-
-	$next = $IC->getNext($item["item_id"], ["itemtype" => $itemtype, "status" => 1, "order" => "position ASC", "extend" => true]);
-	$prev = $IC->getPrev($item["item_id"], ["itemtype" => $itemtype, "status" => 1, "order" => "position ASC", "extend" => true]);
-
 	// set related pattern
-	$related_pattern = ["itemtype" => $item["itemtype"], "tags" => $item["tags"], "exclude" => $item["id"]];
+	$related_pattern = [
+		"itemtype" => $item["itemtype"], 
+		"tags" => $item["tags"], 
+		"exclude" => $item["id"]
+	];
+
 	$related_title = "Related services";
 
 }
@@ -44,14 +53,19 @@ else {
 
 // add base pattern properties
 $related_pattern["limit"] = 5;
-$related_pattern["extend"] = ["tags" => true, "readstate" => true, "user" => true, "mediae" => true];
+$related_pattern["extend"] = [
+	"tags" => true, 
+	"readstate" => true, 
+	"user" => true, 
+	"mediae" => true
+];
 
 // get related items
 $related_items = $IC->getRelatedItems($related_pattern);
 
 ?>
 
-<div class="scene service i:scene">
+<div class="scene service i:serviceitem">
 
 <? if($item):
 	$media = $IC->sliceMediae($item, "single_media"); ?>
@@ -67,7 +81,7 @@ $related_items = $IC->getRelatedItems($related_pattern);
 		<?= HTML()->renderSnippet("snippets/tags.php", [
 			"item" => $item,
 			"context" => [$itemtype]
-			"default" => ["/services", "Services"]
+			"default" => [HTML()->path, "Services"]
 		]) ?>
 
 
@@ -88,32 +102,25 @@ $related_items = $IC->getRelatedItems($related_pattern);
 	</div>
 
 
-<? 	if($next || $prev): ?>
-	<div class="pagination i:pagination">
-		<ul>
-		<? if($prev): ?>
-			<li class="previous">
-				<!-- <h2>Previous</h2> -->
-				<a href="/services/<?= $prev[0]["sindex"] ?>"><?= strip_tags($prev[0]["name"]) ?></a>
-			</li>
-		<? endif; ?>
-		<? if($next): ?>
-			<li class="next">
-				<!-- <h2>Next</h2> -->
-				<a href="/services/<?= $next[0]["sindex"] ?>"><?= strip_tags($next[0]["name"]) ?></a>
-			</li>
-		<? endif; ?>
-		</ul>
-	</div>
-	<? endif; ?>
+	<?= HTML()->renderSnippet("snippets/pagination.php", [
+		"items" => $pagination_items,
+		"type" => "sindex",
+		"show_total" => false,
+		"labels" => ["prev" => "{name}", "next" => "{name}"]
+	]) ?>
+
 
 <? else: ?>
 
-	<h1>Technology is limited</h1>
+	<h1>Technology has limits</h1>
 	<p>We could not find the specified service.</p>
 
 <? endif; ?>
 
+
+<?= HTML()->renderSnippet("snippets/related.php", [
+	"items" => $related_items,
+]) ?>
 
 
 <? if($related_items): ?>

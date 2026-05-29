@@ -1,5 +1,5 @@
 {
-	"version": "0.1",
+	"version": "0.1.2",
 	"files": [
 		{
 			"type": "class",
@@ -17,13 +17,13 @@
 			"type": "backend-template",
 			"src": "templates/janitor/service/list.php",
 			"dest": "templates/janitor/service/list.php",
-			"digest": "sha256:62a281ee39494ea3bdaa09a34e278655dc8d126cab16e0192beb580fcc82c000"
+			"digest": "sha256:25a434165519404034875449ede88753123bd0bd3de68f5b457f20f7def466d1"
 		},
 		{
 			"type": "backend-template",
 			"src": "templates/janitor/service/edit.php",
 			"dest": "templates/janitor/service/edit.php",
-			"digest": "sha256:a501ccf05337126b6fb712707984df4c6d19210e0d359097ee2d87fd689673b5"
+			"digest": "sha256:7ccfc527a6c7d9dac266487a2eb4d26b008a1c6aa576ddac2f06730233239106"
 		},
 		{
 			"type": "backend-template",
@@ -35,13 +35,13 @@
 			"type": "settings-css",
 			"src": "www/settings/css/s-serviceitem.css",
 			"dest": "www/janitor/css/setup/modules/s-serviceitem.css",
-			"digest": "sha256:fc9d02501f6ffc7046bdc0498c51ac095d78b0422e506d86fb7e277c1e1c4527"
+			"digest": "sha256:d98f57dc84b2824a33697a688cb2f7420916f94d3ebf0d129d01d6eeff8c6610"
 		},
 		{
 			"type": "settings-js",
 			"src": "www/settings/js/m-serviceitem.js",
 			"dest": "www/janitor/js/setup/modules/m-serviceitem.js",
-			"digest": "sha256:869f3a5fbe9284b6b19e1aa7ebd5aed5f8c6d56bdf1f340646be2afdc112f4de"
+			"digest": "sha256:415a6b05ff821ae6b3cab1dac8a34d2b7032971eab47ce1c398d1a07956e4f7f"
 		},
 		{
 			"type": "settings-template",
@@ -53,19 +53,19 @@
 			"type": "controller",
 			"src": "www/services.php",
 			"dest": "www/services.php",
-			"digest": "sha256:74fdb41e21bdb7cd17e5d59ac358053ae63b3df561aae714042dd9b9f9278be8"
+			"digest": "sha256:4678656cd7bd7d06ccd134667ebfa0fb754ed45e73cc1f05a7c5adea9bb79f82"
 		},
 		{
 			"type": "template",
 			"src": "templates/services/index.php",
 			"dest": "templates/services/index.php",
-			"digest": "sha256:9a5bdfeaa0743a956e59d15ac129cd6b4da5c7c9a64b2f183713cceb0e9c5699"
+			"digest": "sha256:cb922e167680eb31ba15f0b8039264fd951dcdfca01fec8b2a5ca55fc674f49c"
 		},
 		{
 			"type": "template",
 			"src": "templates/services/view.php",
 			"dest": "templates/services/view.php",
-			"digest": "sha256:94bce3046e3af6d10b0173f0c00d646555b29d96d3ddf52194972e033abfa497"
+			"digest": "sha256:806cac1795468c5101cebcb73d00903eb48f7e677b48c86dc72e11417a663b33"
 		},
 		{
 			"type": "data-model",
@@ -75,7 +75,7 @@
 		{
 			"type": "data-install",
 			"src": "config/db/navigation_nodes.sql",
-			"digest": "sha256:e564388986eff6bd05294a1f1c4dfd5a198deba86628b2324ed99ed471cfaa31"
+			"digest": "sha256:2fe6075787d6b828b1e8a707f1310c2dcca859af12744af26aa0d53f6237aed3"
 		},
 		{
 			"type": "data-uninstall",

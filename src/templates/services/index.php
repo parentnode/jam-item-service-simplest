@@ -1,18 +1,41 @@
 <?php
 global $action;
-global $IC;
 global $itemtype;
 
-$page_item = $IC->getItem(array("tags" => "page:services", "status" => 1, "extend" => array("user" => true, "mediae" => true, "tags" => true)));
+
+$IC = new Items();
+
+$page_item = $IC->getItem([
+	"itemtype" => "page",
+	"tags" => "page:Services", 
+	"status" => 1, 
+	"extend" => [
+		"user" => true, 
+		"mediae" => true, 
+		"tags" => true
+	]
+]);
+
+
 if($page_item) {
 	$this->sharingMetaData($page_item);
 }
 
-$items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "$itemtype.position ASC", "extend" => array("tags" => true, "readstate" => true, "mediae" => true, "user" => true)));
+$items = $IC->getItems([
+	"itemtype" => $itemtype, 
+	"status" => 1, 
+	"order" => "$itemtype.position ASC", 
+	"extend" => [
+		"tags" => true, 
+		"readstate" => true, 
+		"mediae" => true, 
+		"user" => true
+	]
+]);
 
 ?>
 
-<div class="scene services i:scene">
+<div class="scene services i:serviceitems">
 
 <? if($page_item): 
 	$media = $IC->sliceMediae($page_item, "single_media"); ?>
@@ -24,17 +47,12 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 		]) ?>
 
 
-		<?= HTML()->renderSnippet("snippets/tags.php", [
-			"item" => $page_item,
-			"context" => [$itemtype]
-		]) ?>
-
-
 		<h1 itemprop="headline"><?= $page_item["name"] ?></h1>
 
 
 		<?= HTML()->renderSnippet("snippets/info.php", [
 			"item" => $page_item,
+			"url" => HTML()->path,
 			"media" => $media,
 			"sharing" => true
 		]) ?>
@@ -50,9 +68,12 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 
 <? else:?>
 
-	<h1>Services</h1>
+	<div class="article">
+		<h1>Services</h1>
+	</div>
 
 <? endif; ?>
+
 
 	<div class="all_services">
 
@@ -74,7 +95,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				]) ?>
 
 
-				<h2 itemprop="headline"><a href="/services/<?= $item["sindex"] ?>"><?= $item["name"] ?></a></h2>
+				<h2 itemprop="headline"><a href="/<?= HTML()->path ?>/<?= $item["sindex"] ?>"><?= $item["name"] ?></a></h2>
 
 
 				<?= HTML()->renderSnippet("snippets/info.php", [
@@ -91,9 +112,14 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				<? endif; ?>
 
 			</li>
-<? 			endforeach; ?>
+<?			endforeach; ?>
 		</ul>
-<? 		endif; ?>
+
+<?		else: ?>
+
+		<p>No services</p>
+
+<?		endif; ?>
 
 	</div>
 

@@ -13,6 +13,8 @@ $item = $IC->getItem(array("id" => $item_id, "extend" => array("tags" => true, "
 
 	<?= $JML->editGlobalActions($item) ?>
 
+	<?= $JML->previewUrl($item) ?>
+
 	<?= $JML->editSingleMedia($item, array("label" => "Main service image")) ?>
 
 
