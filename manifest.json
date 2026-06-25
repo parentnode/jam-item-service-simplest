@@ -1,5 +1,5 @@
 {
-	"version": "0.1.2",
+	"version": "0.1.2.2",
 	"files": [
 		{
 			"type": "class",
@@ -33,14 +33,14 @@
 		},
 		{
 			"type": "settings-css",
-			"src": "www/settings/css/s-serviceitem.css",
-			"dest": "www/janitor/css/setup/modules/s-serviceitem.css",
+			"src": "www/settings/css/s-item-service.css",
+			"dest": "www/janitor/css/setup/modules/s-item-service.css",
 			"digest": "sha256:d98f57dc84b2824a33697a688cb2f7420916f94d3ebf0d129d01d6eeff8c6610"
 		},
 		{
 			"type": "settings-js",
-			"src": "www/settings/js/m-serviceitem.js",
-			"dest": "www/janitor/js/setup/modules/m-serviceitem.js",
+			"src": "www/settings/js/m-item-service.js",
+			"dest": "www/janitor/js/setup/modules/m-item-service.js",
 			"digest": "sha256:415a6b05ff821ae6b3cab1dac8a34d2b7032971eab47ce1c398d1a07956e4f7f"
 		},
 		{
@@ -59,13 +59,13 @@
 			"type": "template",
 			"src": "templates/services/index.php",
 			"dest": "templates/services/index.php",
-			"digest": "sha256:cb922e167680eb31ba15f0b8039264fd951dcdfca01fec8b2a5ca55fc674f49c"
+			"digest": "sha256:2adc51430146eb5df34caba241621f64d2ebc258f5b96ccfdf0fdd6c67bc319b"
 		},
 		{
 			"type": "template",
 			"src": "templates/services/view.php",
 			"dest": "templates/services/view.php",
-			"digest": "sha256:806cac1795468c5101cebcb73d00903eb48f7e677b48c86dc72e11417a663b33"
+			"digest": "sha256:87ad8929a57a1cad75995896cda83852116b8fb7ffc433c4084d37c73b517738"
 		},
 		{
 			"type": "data-model",

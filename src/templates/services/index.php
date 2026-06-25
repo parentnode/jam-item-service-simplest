@@ -3,16 +3,13 @@ global $action;
 global $itemtype;
 
 
-$IC = new Items();
-
-$page_item = $IC->getItem([
+$page_item = items()->getItem([
 	"itemtype" => "page",
 	"tags" => "page:Services", 
 	"status" => 1, 
 	"extend" => [
 		"user" => true, 
 		"mediae" => true, 
-		"tags" => true
 	]
 ]);
 
@@ -21,7 +18,7 @@ if($page_item) {
 	$this->sharingMetaData($page_item);
 }
 
-$items = $IC->getItems([
+$items = items()->getItems([
 	"itemtype" => $itemtype, 
 	"status" => 1, 
 	"order" => "$itemtype.position ASC", 
@@ -38,7 +35,7 @@ $items = $IC->getItems([
 <div class="scene services i:serviceitems">
 
 <? if($page_item): 
-	$media = $IC->sliceMediae($page_item, "single_media"); ?>
+	$media = items()->sliceMediae($page_item, "single_media"); ?>
 	<div class="article i:article id:<?= $page_item["item_id"] ?> service" itemscope itemtype="http://schema.org/Article">
 
 		<?= HTML()->renderSnippet("snippets/media.php", [
@@ -80,7 +77,7 @@ $items = $IC->getItems([
 <?		if($items): ?>
 		<ul class="items services articles articlePreviewList i:articlePreviewList">
 <?			foreach($items as $item):
-				$media = $IC->sliceMediae($item, "single_media"); ?>
+				$media = items()->sliceMediae($item, "single_media"); ?>
 			<li class="item article service id:<?= $item["item_id"] ?><?= $item["classname"] ? " ".$item["classname"] : "" ?>" itemscope itemtype="http://schema.org/Article">
 
 				<?= HTML()->renderSnippet("snippets/media.php", [
@@ -95,7 +92,7 @@ $items = $IC->getItems([
 				]) ?>
 
 
-				<h2 itemprop="headline"><a href="/<?= HTML()->path ?>/<?= $item["sindex"] ?>"><?= $item["name"] ?></a></h2>
+				<h2 itemprop="headline"><a href="<?= HTML()->path ?>/<?= $item["sindex"] ?>"><?= $item["name"] ?></a></h2>
 
 
 				<?= HTML()->renderSnippet("snippets/info.php", [

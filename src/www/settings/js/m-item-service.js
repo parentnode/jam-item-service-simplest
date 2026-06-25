@@ -1,4 +1,4 @@
-Util.Modules["serviceitem"] = new function() {
+Util.Modules["itemService"] = new function() {
 	this.init = function(div) {
 
 

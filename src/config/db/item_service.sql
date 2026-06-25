@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `SITE_DB`.`item_service` (
+CREATE TABLE `SITE_DB`.`item_service` (
   `id` int(11) NOT NULL auto_increment,
   `item_id` int(11) NOT NULL,
 
