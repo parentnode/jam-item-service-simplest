@@ -1,4 +1,5 @@
 <?php
+$controller_type = "item";
 $controller_itemtype = "service";
 $controller_favors = ["view" => "service", "list" => "List services"];
 
